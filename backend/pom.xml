@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.0.M3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>Mudar.backend</groupId>
+	<artifactId>Mudar</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Backend</name>
+	<description>
+            Projeto para criação de um sistema para uma nova 
+            alternativa de mobilidade para transportes de carga simples, segura 
+            conveniente e barata.   Buscamos facilitar a busca por pessoas aptas
+            para efetuar  translado de itens comerciais e domésticos para 
+            facilitar a vida dos contratantes
+        </description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-codec-http</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+		<dependency>
+                    <groupId>de.codecentric</groupId>
+                    <artifactId>spring-boot-admin-starter-server</artifactId>
+		</dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>io.springfox</groupId>
+                    <artifactId>springfox-swagger2</artifactId>
+                    <version>2.9.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>io.springfox</groupId>
+                    <artifactId>springfox-swagger-ui</artifactId>
+                    <version>2.9.2</version>
+                </dependency>
+                <dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.1</version>
+		 <type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.10.7</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.10.7</version>
+			<scope>runtime</scope>
+		</dependency>
+                
+		<dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+                            <exclusion>
+                                <groupId>org.junit.vintage</groupId>
+                                <artifactId>junit-vintage-engine</artifactId>
+                            </exclusion>
+			</exclusions>
+		</dependency>
+	 <dependency>
+	  <groupId>javax.validation</groupId>
+	  <artifactId>validation-api</artifactId>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.hibernate.validator</groupId>
+	  <artifactId>hibernate-validator</artifactId>
+	  <type>jar</type>
+	  <version>6.0.18.Final</version>
+	 </dependency>
+	 <dependency>
+	  <groupId>commons-dbcp</groupId>
+	  <artifactId>commons-dbcp</artifactId>
+	  <version>1.4</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>com.google.guava</groupId>
+	  <artifactId>guava</artifactId>
+	  <version>28.1-jre</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-configuration-processor</artifactId>
+	  <optional>true</optional>
+	 </dependency>
+	 <dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>javax.servlet-api</artifactId>
+	  <version>4.0.1</version>
+	  <type>jar</type>
+	 </dependency>
+	</dependencies>
+
+	<dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>de.codecentric</groupId>
+                    <artifactId>spring-boot-admin-dependencies</artifactId>
+                    <version>${spring-boot-admin.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+            </dependencies>
+	</dependencyManagement>
+
+	<build>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+	</build>
+
+	<repositories>
+            <repository>
+                <id>spring-milestones</id>
+                <name>Spring Milestones</name>
+                <url>https://repo.spring.io/milestone</url>
+            </repository>
+	</repositories>
+	<pluginRepositories>
+            <pluginRepository>
+                <id>spring-milestones</id>
+                <name>Spring Milestones</name>
+                <url>https://repo.spring.io/milestone</url>
+            </pluginRepository>
+	</pluginRepositories>
+
+</project>

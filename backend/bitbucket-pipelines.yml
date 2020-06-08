@@ -1,0 +1,39 @@
+
+pipelines:
+  branches:
+      master:
+        - step:
+            name: Construir e testar
+            image: maven:3
+            caches: 
+              - maven
+            script:
+              - mvn -B -e -X clean verify
+        - step:
+            name: Criando artefato
+            script:
+              - tar czfv application.tgz pom.xml src/
+            artifacts:
+              - application.tgz
+        - step:
+              name: Implantação para teste no heroku
+              deployment: Staging
+              script:
+                - echo "Implantação para ambiente de teste no heroku"
+                - pipe: atlassian/heroku-deploy:0.1.2
+                  variables:
+                      HEROKU_API_KEY: '2d20d957-95f7-4c17-b7bb-76077435a188'
+                      HEROKU_APP_NAME: 'api-thundertranportes'
+                      ZIP_FILE: "application.tgz"
+                      WAIT: 'true' # Optional
+                      DEBUG: 'true' # Optional
+                  
+
+                  
+#    - step:
+#        name:  Validação de teste
+#        - pipe: beaglesecurity/beaglesecurity-test:1.1.0
+#          variables:
+#            ACCESS_TOKEN: "4v4kx06da1344q6zl6a7z97etw9yd4kd"
+#            APPLICATION_TOKEN: "emvdlr16az27yhckc6yvyx6iv63ry2lc"
+#            DEBUG: "true" # Optional

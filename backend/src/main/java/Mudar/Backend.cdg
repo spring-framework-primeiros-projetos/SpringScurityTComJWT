@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Backend">
+  <ClassDiagramComponents>
+    <Class name="UntitledClass" package="" visibility="public" xPosition="226.0" yPosition="120.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="UntitledInterface" package="" visibility="public" xPosition="582.0" yPosition="182.0">
+      <Methods/>
+    </Interface>
+    <Enum name="UntitledEnum" package="" visibility="public" xPosition="585.0" yPosition="94.0">
+      <Literals/>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
